@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- icon -->
+    <link rel="icon" href="{{ asset('assets/img/icon.png') }}">
     <title>{{ config('app.name') }}</title>
 
     <!-- Fonts -->
@@ -26,45 +28,12 @@
     {{-- logo start --}}
     <div class="logo">
         <div class="container-sm">
-            <img src="{{ asset('assets/img/header.png') }}" alt="" width="100%" class="mx-auto">
+            <img src="{{ asset('assets/img/header.png') }}" class="my-2" alt="" width="100%" class="mx-auto">
         </div>
     </div>
     {{-- logo end --}}
     {{-- navbar start --}}
-    <nav class="navbar navbar-expand-lg" style="background: #105991;">
-        <div class="container-fluid fs-5">
-            <button class="navbar-toggler my-2 bg-white pill" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class='bx bx-menu'></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto justify-content-evenly">
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold text-oren active" aria-current="page" href="#">Beranda</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-oren" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-oren" href="#">Berita</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-oren" href="#">Keangotaan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-oren" href="#">Kegiatan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-oren" href="#">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-oren" href="#">Kontak</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.partials.nvabar')
     {{-- navbar end --}}
     {{-- carousel start --}}
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -78,27 +47,27 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://abujapi.or.id/wp-admin/public/uploads/slider-images/thumb/Kunjungan_audiensi_dgn_Ketua_MPR1.png?1700062903367"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                <img src="{{ asset('assets/img/slide 1.jpg') }}"
+                    class="d-block w-100 object-fit-cover" alt="..." height="600px">
+                <div class="carousel-caption d-none d-sm-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
+                    <h5>MUSDA 1 BPD ABUJAPI SUMATERA BARAT</h5>
+                    {{-- <p>Some representative placeholder content for the first slide.</p> --}}
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://abujapi.or.id/wp-admin/public/uploads/slider-images/thumb/MUNAS_3_ABUJAPI_2019.png?1700062908098"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                <img src="{{ asset('assets/img/slide 2.jpg') }}"
+                    class="d-block w-100 object-fit-cover" alt="..." height="600px">
+                <div class="carousel-caption d-none d-sm-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
+                    <h5>MUSDA 1 BPD ABUJAPI SUMATERA BARAT</h5>
+                    {{-- <p>Some representative placeholder content for the second slide.</p> --}}
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://abujapi.or.id/wp-admin/public/uploads/slider-images/thumb/Rapat_Koordinasi_BPP_Abujapi_dgn_Kakorbinmas_serta_jajarannya.png?1700062912220"
-                    class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                <img src="{{ asset('assets/img/slide 3.jpg') }}"
+                    class="d-block w-100 object-fit-cover" alt="..." height="600px">
+                <div class="carousel-caption d-none d-sm-block rounded-pill" style="background: rgba(0, 0, 0, 0.288)">
+                    <h5>RAPAT KERJA DAERAH DAN FGD ABUJAPI SUMATERA BARAT</h5>
+                    {{-- <p>Some representative placeholder content for the third slide.</p> --}}
                 </div>
             </div>
         </div>
@@ -132,7 +101,7 @@
             <div class="col-md-6">
                 <div class="title pb-2 text-decoration">
                     <h1 class="ald text-oren fw-bold">
-                        Kenapa abujapi
+                        Kenapa Abujapi
                     </h1>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias culpa assumenda, explicabo dolores

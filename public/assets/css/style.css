@@ -12,6 +12,14 @@
 
 }
 
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown .dropdown-menu{
+    display: none;
+}
+
 .nav-link{
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -52,3 +60,5 @@
 .text-oren{
     color: #eaa742;
 }
+
+

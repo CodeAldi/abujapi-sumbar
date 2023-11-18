@@ -26,3 +26,7 @@ Route::controller(frontendController::class)->group(function(){
     Route::get('/galerivideo','galerivideo')->name('galeri.video');
     Route::get('/hubungikami','hubungikami')->name('hubungikami');
 });
+
+Route::get('/dashboard',function(){
+    return view('admin.dashboard');
+});

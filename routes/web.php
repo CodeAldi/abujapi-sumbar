@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontendController;
+use App\Http\Controllers\KategoriBeritaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,10 @@ Route::controller(frontendController::class)->group(function(){
 
 Route::get('/dashboard',function(){
     return view('admin.dashboard');
+})->name('dashboard');
+
+Route::controller(KategoriBeritaController::class)->group(function(){
+    Route::get('/dashboard/kategori-berita/index','index')->name('berita.kategori-berita.index');
+    Route::post('/dashboard/kategori-berita/index','store')->name('berita.kategori-berita.store');
+    Route::delete('/dashboard/kategori-berita/{kategoriBerita}/delete','destroy')->name('berita.kategori-berita.delete');
 });

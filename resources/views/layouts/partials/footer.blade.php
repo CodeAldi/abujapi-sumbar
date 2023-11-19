@@ -4,9 +4,11 @@
             <div class="col-6 mb-3">
                 <h5>ABUJAPI SUMBAR</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">ALAMAT : Jl. S. Parman No. 118B KOTA PADANG SUMATERA BARAT</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Telp : Maintenance</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Email : sumbar@abujapi.or.id</a></li>
+                    <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">ALAMAT : Jl. S. Parman No.
+                            118B KOTA PADANG SUMATERA BARAT</span></li>
+                    <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">Telp : Maintenance</span></li>
+                    <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">Email :
+                            sumbar@abujapi.or.id</span></li>
                 </ul>
             </div>
 
@@ -25,7 +27,12 @@
         </div>
 
         <div class="d-flex flex-column flex-sm-row justify-content-between border-top">
-            <p>© 2023 Company, Inc. All rights reserved.</p>
+            <p>©
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                BPD ABUJAPI SUMBAR, All rights reserved. And Code by <a href="https://github.com/CodeAldi" target="_blank" class="footer-link fw-bolder">CodeAldi</a>
+            </p>
         </div>
     </footer>
 </div>

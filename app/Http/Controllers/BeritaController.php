@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\KategoriBerita;
 
 class BeritaController extends Controller
 {
@@ -12,7 +14,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        //
+        $berita = Berita::all();
+        return view('admin.berita.index')
+        ->with('berita',$berita);
     }
 
     /**
@@ -20,7 +24,9 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        $kategoriBerita = KategoriBerita::all();
+        return view('admin.berita.create')
+        ->with('kategoriBerita',$kategoriBerita);
     }
 
     /**
@@ -28,7 +34,11 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $judul_berita = $request->judul_berita;
+        $slug = Str::slug($judul_berita);
+        $kategori_berita_id = $request->kategori_berita_id;
+        $short = Str::limit(strip_tags($request->body), 200, '...');
+        dd($judul_berita,$slug,$kategori_berita_id,$short);
     }
 
     /**

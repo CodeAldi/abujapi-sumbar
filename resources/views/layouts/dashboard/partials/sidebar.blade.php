@@ -33,13 +33,13 @@
                         <div>Kategori Berita</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('berita.berita.index')) active @endif">
+                    <a href="{{ route('berita.berita.index') }}" class="menu-link">
                         <div>List Berita</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('berita.berita.create')) active @endif">
+                    <a href="{{ route('berita.berita.create') }}" class="menu-link">
                         <div>Tulis Berita</div>
                     </a>
                 </li>

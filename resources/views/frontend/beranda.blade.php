@@ -109,6 +109,21 @@
                     </h1>
                 </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                    @forelse ($berita as $item)
+                    <div class="col">
+                        <div class="card">
+                            <img src="{{ asset('storage/'.$item->thumbnail) }}"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->judul_berita }}</h5>
+                                <p class="card-text">{{ $item->short }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">by admin</small>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
                     <div class="col">
                         <div class="card">
                             <img src="{{ asset('assets/img/news-thumbnail/pengukuhan bpd abujapi sumbar.jpg') }}"
@@ -149,6 +164,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforelse
                 </div>
             </div>
             <div class="muat mt-3 ">

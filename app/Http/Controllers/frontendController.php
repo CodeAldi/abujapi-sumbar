@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class frontendController extends Controller
 {
     public function beranda() : View {
-        return view('frontend.beranda');
+        $berita = Berita::latest()->take(6)->get();
+        return view('frontend.beranda')->with('berita',$berita);
     }
 
     public function organisasi() : View {

@@ -31,11 +31,11 @@
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i
+                                    <a class="dropdown-item" href="{{ route('berita.berita.edit',['berita'=>$item]) }}"><i
                                             class="bx bx-edit-alt me-1"></i>
                                         Edit</a>
                                     <form
-                                        action="{{ route('berita.kategori-berita.delete',['kategoriBerita'=>$item]) }}"
+                                        action="{{ route('berita.berita.destroy',['berita'=>$item]) }}"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')

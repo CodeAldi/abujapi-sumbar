@@ -41,5 +41,8 @@ Route::controller(KategoriBeritaController::class)->group(function(){
 Route::controller(BeritaController::class)->group(function(){
     Route::get('/dashboard/berita/index','index')->name('berita.berita.index');
     Route::get('/dashboard/berita/create','create')->name('berita.berita.create');
+    Route::get('/dashboard/berita/{berita}/edit','edit')->name('berita.berita.edit');
+    Route::put('/dashboard/berita/{berita}/update','update')->name('berita.berita.update');
     Route::post('/dashboard/berita/store','store')->name('berita.berita.store');
+    Route::delete('/dashboard/berita/{berita}/destroy','destroy')->name('berita.berita.destroy');
 });

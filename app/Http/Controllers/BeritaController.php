@@ -6,6 +6,7 @@ use App\Models\Berita;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriBerita;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaController extends Controller
 {
@@ -38,7 +39,18 @@ class BeritaController extends Controller
         $slug = Str::slug($judul_berita);
         $kategori_berita_id = $request->kategori_berita_id;
         $short = Str::limit(strip_tags($request->body), 200, '...');
-        dd($judul_berita,$slug,$kategori_berita_id,$short);
+        $thumbnail = $request->file('thumbnail')->storeAs('news-thumbnail',$judul_berita.$request->file('thumbnail')->extension());
+        
+
+        $berita = new Berita();
+        $berita->judul_berita = $judul_berita;
+        $berita->slug = $slug;
+        $berita->kategori_berita_id = $kategori_berita_id;
+        $berita->thumbnail = $thumbnail;
+        $berita->short = $short;
+        $berita->body = $request->body;
+        $berita->save();
+        return redirect()->route('berita.berita.index');
     }
 
     /**
@@ -54,7 +66,10 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        //
+        $kategoriBerita = KategoriBerita::all();
+        return view('admin.berita.edit')
+        ->with('berita',$berita)
+        ->with('kategoriBerita',$kategoriBerita);
     }
 
     /**
@@ -62,7 +77,7 @@ class BeritaController extends Controller
      */
     public function update(Request $request, Berita $berita)
     {
-        //
+        dd('hello');
     }
 
     /**
@@ -70,6 +85,8 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+        Storage::delete($berita->thumbnail);
+        $berita->delete();
+        return redirect()->route('berita.berita.index');
     }
 }

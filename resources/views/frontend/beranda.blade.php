@@ -116,10 +116,10 @@
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->judul_berita }}</h5>
-                                <p class="card-text">{{ $item->short }}</p>
+                                <p class="card-text">{{ $item->short }} <a href="{{ route('berita.baca',['slug'=>$item->slug]) }}" class="text-oren fw-bold">Selengkapnya</a></p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-body-secondary">by admin</small>
+                                <small class="text-body-secondary">admin | {{ date_format($item->updated_at, 'd-M-Y H:i:s') }} wib</small>
                             </div>
                         </div>
                     </div>
@@ -167,8 +167,8 @@
                     @endforelse
                 </div>
             </div>
-            <div class="muat mt-3 ">
-                <a href="#" class="btn d-block text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
+            <div class="muat mt-3">
+                <a href="#" class="btn d-block mx-auto text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
                     Banyak</a>
             </div>
         </div>

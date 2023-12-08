@@ -12,7 +12,7 @@ class Berita extends Model
     protected $table = 'berita';
     protected $guard = ['id'];
     
-    public function kategori(): BelongsTo
+    public function kategori_berita(): BelongsTo
     {
         return $this->belongsTo(KategoriBerita::class);
     }

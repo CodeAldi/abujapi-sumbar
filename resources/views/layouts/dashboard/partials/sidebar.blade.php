@@ -12,7 +12,7 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <!-- Dashboard -->
+        {{--! Dashboard --}}
         <li class="menu-item @if(Request::RouteIs('dashboard')) active @endif">
             <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
@@ -41,6 +41,31 @@
                 <li class="menu-item @if(Request::RouteIs('berita.berita.create')) active @endif">
                     <a href="{{ route('berita.berita.create') }}" class="menu-link">
                         <div>Tulis Berita</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{--! Kegiatan --}}
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <div>Kegiatan</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div>Kategori Kegiatan</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div>List Kegiatan</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-container.html" class="menu-link">
+                        <div>Tulis Kegiatan</div>
                     </a>
                 </li>
             </ul>
@@ -94,6 +119,13 @@
                     </a>
                 </li>
             </ul>
+        </li>
+        {{-- ! logout --}}
+        <li class="menu-item">
+            <a href="{{ route('logout') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out-circle"></i>
+                <div>Logout</div>
+            </a>
         </li>
     </ul>
 </aside>

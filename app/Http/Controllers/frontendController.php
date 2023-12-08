@@ -26,7 +26,13 @@ class frontendController extends Controller
     }
 
     public function berita() : View {
-        return view('frontend.berita');
+        $berita = Berita::latest()->get();
+        return view('frontend.berita')
+        ->with('berita',$berita);
+    }
+    public function beritabaca($slug) : View{
+        $berita = Berita::where('slug','like',$slug)->get();
+        return view('frontend.berita.baca')->with('berita', $berita);
     }
 
     public function keanggotaan() : View {

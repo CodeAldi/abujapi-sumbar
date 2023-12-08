@@ -43,7 +43,7 @@
                     <button type="button" onclick="hapusgambar()" id="tombolhapus" class="position-absolute btn-sm btn-danger rounded-start-2 end-0 me-4 mt-2"> <i class='bx bx-trash'></i></button>
                     <img id="gambarold" src="{{ asset('storage/'.$berita->thumbnail) }}" alt="thumbnail" class="img-fluid">
                     <div class="col-sm-12">
-                        <input type="text" name="status-thumbnail" id="status-thumbnail" value="old" hidden>
+                        <input type="text" name="status_thumbnail" id="status_thumbnail" value="old" hidden>
                         <input class="form-control visually-hidden" type="file" accept="image/*" id="thumbnail" name="thumbnail"/>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
         $gambar = document.getElementById("gambarold");
         $tombolhapus = document.getElementById("tombolhapus");
         $tempatinput = document.getElementById("thumbnail");
-        $status = document.getElementById("status-thumbnail");
+        $status = document.getElementById("status_thumbnail");
         $status.value = 'new';
         $gambar.remove();
         $tombolhapus.remove();

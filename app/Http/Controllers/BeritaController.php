@@ -39,7 +39,7 @@ class BeritaController extends Controller
         $slug = Str::slug($judul_berita);
         $kategori_berita_id = $request->kategori_berita_id;
         $short = Str::limit(strip_tags($request->body), 200, '...');
-        $thumbnail = $request->file('thumbnail')->storeAs('news-thumbnail',$judul_berita.$request->file('thumbnail')->extension());
+        $thumbnail = $request->file('thumbnail')->storeAs('news-thumbnail',$judul_berita.'.'.$request->file('thumbnail')->extension());
         
 
         $berita = new Berita();
@@ -77,7 +77,20 @@ class BeritaController extends Controller
      */
     public function update(Request $request, Berita $berita)
     {
-        dd('hello');
+        $berita->judul_berita = $request->judul_berita;
+        $slug = Str::slug($request->judul_berita);
+        $berita->slug = $slug;
+        $berita->kategori_berita_id = $request->kategori_berita_id;
+        $berita->body = $request->body;
+        $short = Str::limit(strip_tags($request->body), 200, '...');
+        $berita->short = $short;
+        if($request->status_thumbnail == 'new'){
+            Storage::delete($berita->thumbnail);
+            $thumbnail = $request->file('thumbnail')->storeAs('news-thumbnail', $berita->judul_berita . '.' . $request->file('thumbnail')->extension());
+            $berita->thumbnail = $thumbnail;
+        }
+        $berita->save();
+        return redirect()->route('berita.berita.index');
     }
 
     /**

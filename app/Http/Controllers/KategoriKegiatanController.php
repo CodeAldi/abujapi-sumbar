@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\KategoriKegiatan;
 
 class KategoriKegiatanController extends Controller
 {
@@ -11,7 +13,9 @@ class KategoriKegiatanController extends Controller
      */
     public function index()
     {
-        //
+        $kategoriKegiatan = KategoriKegiatan::all();
+        return view('admin.kategori-kegiatan.index')
+        ->with('kategoriKegiatan', $kategoriKegiatan);
     }
 
     /**
@@ -27,7 +31,14 @@ class KategoriKegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul_kategori' => 'required|unique:kategori_kegiatan|string|max:50',
+        ]);
+        $kategoriKegiatan = new KategoriKegiatan();
+        $kategoriKegiatan->judul_kategori = $validatedData['judul_kategori'];
+        $kategoriKegiatan->slug = Str::slug($kategoriKegiatan->judul_kategori);
+        $kategoriKegiatan->save();
+        return redirect()->route('kegiatan.kategori-kegiatan.index');
     }
 
     /**
@@ -57,8 +68,9 @@ class KategoriKegiatanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(KategoriKegiatan $kategoriKegiatan)
     {
-        //
+        $kategoriKegiatan->delete();
+        return redirect()->route('kegiatan.kategori-kegiatan.index');
     }
 }

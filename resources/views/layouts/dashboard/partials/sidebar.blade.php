@@ -46,25 +46,25 @@
             </ul>
         </li>
         {{--! Kegiatan --}}
-        <li class="menu-item">
+        <li class="menu-item @if(Request::RouteIs('kegiatan.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-receipt"></i>
                 <div>Kegiatan</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('kegiatan.kategori-kegiatan.*')) active @endif">
+                    <a href="{{ route('kegiatan.kategori-kegiatan.index') }}" class="menu-link">
                         <div>Kategori Kegiatan</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('kegiatan.kegiatan.index')) active @endif">
+                    <a href="l{{ route('kegiatan.kegiatan.index') }}" class="menu-link">
                         <div>List Kegiatan</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('kegiatan.kegiatan.create')) active @endif">
+                    <a href="{{ route('kegiatan.kegiatan.create') }}" class="menu-link">
                         <div>Tulis Kegiatan</div>
                     </a>
                 </li>

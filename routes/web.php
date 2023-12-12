@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\frontendController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KategoriBeritaController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriKegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +55,17 @@ Route::controller(BeritaController::class)->middleware('auth')->group(function()
     Route::put('/dashboard/berita/{berita}/update','update')->name('berita.berita.update');
     Route::post('/dashboard/berita/store','store')->name('berita.berita.store');
     Route::delete('/dashboard/berita/{berita}/destroy','destroy')->name('berita.berita.destroy');
+});
+Route::controller(KategoriKegiatanController::class)->middleware('auth')->group(function () {
+    Route::get('/dashboard/kategori-kegiatan/index', 'index')->name('kegiatan.kategori-kegiatan.index');
+    Route::post('/dashboard/kategori-kegiatan/index', 'store')->name('kegiatan.kategori-kegiatan.store');
+    Route::delete('/dashboard/kategori-kegiatan/{kategoriKegiatan}/delete', 'destroy')->name('kegiatan.kategori-kegiatan.delete');
+});
+Route::controller(KegiatanController::class)->middleware('auth')->group(function () {
+    Route::get('/dashboard/kegiatan/index', 'index')->name('kegiatan.kegiatan.index');
+    Route::get('/dashboard/kegiatan/create', 'create')->name('kegiatan.kegiatan.create');
+    Route::get('/dashboard/kegiatan/{kegiatan}/edit', 'edit')->name('kegiatan.kegiatan.edit');
+    Route::put('/dashboard/kegiatan/{kegiatan}/update', 'update')->name('kegiatan.kegiatan.update');
+    Route::post('/dashboard/kegiatan/store', 'store')->name('kegiatan.kegiatan.store');
+    Route::delete('/dashboard/kegiatan/{kegiatan}/destroy', 'destroy')->name('kegiatan.kegiatan.destroy');
 });

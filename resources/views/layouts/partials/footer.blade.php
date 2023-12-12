@@ -26,12 +26,15 @@
 
         </div>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-between border-top">
+        <div class="d-flex flex-column flex-sm-row justify-content-between border-top pt-2">
             <p>©
                 <script>
                     document.write(new Date().getFullYear());
                 </script>
-                BPD ABUJAPI SUMBAR, All rights reserved. And Code by <a href="https://github.com/CodeAldi" target="_blank" class="footer-link fw-bolder">CodeAldi</a>
+                BPD ABUJAPI SUMBAR, All rights reserved.
+            </p>
+            <p>
+                Code and design by codealdi@gmail.com
             </p>
         </div>
     </footer>

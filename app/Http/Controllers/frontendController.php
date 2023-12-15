@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class frontendController extends Controller
 {
     public function beranda() : View {
-        $berita = Berita::latest()->take(6)->get();
-        return view('frontend.beranda')->with('berita',$berita);
+        $berita = Berita::latest()->take(3)->get();
+        $kegiatan = Kegiatan::latest()->take(3)->get();
+        return view('frontend.beranda')->with('berita',$berita)->with('kegiatan',$kegiatan);
     }
 
     public function organisasi() : View {

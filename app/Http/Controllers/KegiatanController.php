@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\KategoriKegiatan;
+use Illuminate\Support\Facades\Storage;
+
 
 class KegiatanController extends Controller
 {
@@ -11,7 +16,9 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        //
+        $kegiatan = Kegiatan::all();
+        return view('admin.kegiatan.index')
+        ->with('kegiatan',$kegiatan);
     }
 
     /**
@@ -19,7 +26,9 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        //
+        $kategoriKegiatan = KategoriKegiatan::all();
+        return view('admin.kegiatan.create')
+        ->with('kategoriKegiatan',$kategoriKegiatan);
     }
 
     /**
@@ -27,7 +36,24 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $judul_kegiatan = $request->judul_kegiatan;
+        $slug = Str::slug($judul_kegiatan);
+        $kategori_kegiatan_id = $request->kategori_kegiatan_id;
+        $short = Str::limit(strip_tags($request->body), 50, '...');
+        $file_thumbnail = $request->file('thumbnail');
+        // $thumbnail = $file_thumbnail->storeAs('kegiatan-thumbnail', $judul_kegiatan . '.' . $request->file('thumbnail')->extension());
+        $thumbnail = Storage::putFile('kegiatan-thumbnail',$file_thumbnail);
+
+        $kegiatan = new Kegiatan();
+        $kegiatan->judul_kegiatan = $judul_kegiatan;
+        $kegiatan->slug = $slug;
+        $kegiatan->kategori_kegiatan_id = $kategori_kegiatan_id;
+        $kegiatan->thumbnail = $thumbnail;
+        $kegiatan->short = $short;
+        $kegiatan->body = $request->body;
+        $kegiatan->save();
+        // dd($request->all(),$file_thumbnail,$thumbnail);
+        return redirect()->route('kegiatan.kegiatan.index');
     }
 
     /**
@@ -57,8 +83,10 @@ class KegiatanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Kegiatan $kegiatan)
     {
-        //
+        Storage::delete($kegiatan->thumbnail);
+        $kegiatan->delete();
+        return redirect()->route('kegiatan.kegiatan.index');
     }
 }

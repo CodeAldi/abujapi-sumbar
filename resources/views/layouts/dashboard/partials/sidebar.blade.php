@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="menu-item @if(Request::RouteIs('kegiatan.kegiatan.index')) active @endif">
-                    <a href="l{{ route('kegiatan.kegiatan.index') }}" class="menu-link">
+                    <a href="{{ route('kegiatan.kegiatan.index') }}" class="menu-link">
                         <div>List Kegiatan</div>
                     </a>
                 </li>

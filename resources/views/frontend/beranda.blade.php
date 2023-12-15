@@ -180,6 +180,21 @@
                     </h1>
                 </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                    @forelse ($kegiatan as $item)
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ asset('storage/'.$item->thumbnail) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->judul_kegiatan }}</h5>
+                                    <p class="card-text">{{ $item->short }} <a href="{{ route('berita.baca',['slug'=>$item->slug]) }}"
+                                            class="text-oren fw-bold">Selengkapnya</a></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">admin | {{ date_format($item->updated_at, 'd-M-Y H:i:s') }} wib</small>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
                     <div class="col">
                         <div class="card">
                             <img src="{{ asset('assets/img/news-thumbnail/musda bpd abujapi sumbar.jpg') }}"
@@ -219,6 +234,8 @@
                             </div>
                         </div>
                     </div>
+                        
+                    @endforelse
                 </div>
             </div>
             <div class="muat mt-3 ">

@@ -16,7 +16,7 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $kegiatan = Kegiatan::all();
+        $kegiatan = Kegiatan::paginate(3);
         return view('admin.kegiatan.index')
         ->with('kegiatan',$kegiatan);
     }
@@ -39,7 +39,7 @@ class KegiatanController extends Controller
         $judul_kegiatan = $request->judul_kegiatan;
         $slug = Str::slug($judul_kegiatan);
         $kategori_kegiatan_id = $request->kategori_kegiatan_id;
-        $short = Str::limit(strip_tags($request->body), 50, '...');
+        $short = Str::limit(strip_tags($request->body), 200, '...');
         $file_thumbnail = $request->file('thumbnail');
         // $thumbnail = $file_thumbnail->storeAs('kegiatan-thumbnail', $judul_kegiatan . '.' . $request->file('thumbnail')->extension());
         $thumbnail = Storage::putFile('kegiatan-thumbnail',$file_thumbnail);
@@ -85,7 +85,7 @@ class KegiatanController extends Controller
         $kegiatan->slug = $slug;
         $kegiatan->kategori_kegiatan_id = $request->kategori_kegiatan_id;
         $kegiatan->body = $request->body;
-        $short = Str::limit(strip_tags($request->body), 50, '...');
+        $short = Str::limit(strip_tags($request->body), 200, '...');
         $kegiatan->short = $short;
         if ($request->status_thumbnail == 'new') {
             Storage::delete($kegiatan->thumbnail);

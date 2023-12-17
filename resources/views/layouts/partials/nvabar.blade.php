@@ -24,7 +24,7 @@
                     <a class="nav-link text-oren @if(Request::RouteIs('keanggotaan')) fw-bold active @endif" href="{{ route('keanggotaan') }}">Keanggotaan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-oren @if(Request::RouteIs('kegiatan')) fw-bold active @endif" href="{{ route('kegiatan') }}">Kegiatan</a>
+                    <a class="nav-link text-oren @if(Request::RouteIs('kegiatan.*')) fw-bold active @endif" href="{{ route('kegiatan.all') }}">Kegiatan</a>
                 </li>
                 <li class="nav-item dropdown">
                     <button class="nav-link text-oren @if(Request::RouteIs('galeri.*')) fw-bold active @endif" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Galeri <i

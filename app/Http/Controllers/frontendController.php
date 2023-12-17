@@ -28,7 +28,7 @@ class frontendController extends Controller
     }
 
     public function berita() : View {
-        $berita = Berita::latest()->get();
+        $berita = Berita::latest()->paginate(3);
         return view('frontend.berita')
         ->with('berita',$berita);
     }
@@ -42,7 +42,8 @@ class frontendController extends Controller
     }
 
     public function kegiatan() : View {
-        return view('frontend.kegiatan');
+        $kegiatan = Kegiatan::latest()->paginate(3);
+        return view('frontend.kegiatan')->with('kegiatan',$kegiatan);
     }
 
     public function galeriphoto() : View {

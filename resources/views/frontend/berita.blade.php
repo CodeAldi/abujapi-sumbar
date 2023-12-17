@@ -5,8 +5,9 @@
         Berita
     </h1>
     <hr>
+    {{ $berita->links('vendor.pagination.bootstrap-5') }}
     @forelse ($berita as $item)
-    <img src="{{ asset('storage/'.$item->thumbnail) }}" class="d-block mx-auto" alt="">
+    <img src="{{ asset('storage/'.$item->thumbnail) }}" class="d-block mx-auto img-fluid" alt="">
         <h2>{{ $item->judul_berita }}</h2>
         <h6>admin | {{ date_format($item->updated_at, 'd-M-Y H:i:s') }} wib | {{ $item->kategori_berita->judul_kategori }}</h6>
         <p class="mt-2">
@@ -16,5 +17,6 @@
     @empty
         
     @endforelse
+    {{ $berita->links('vendor.pagination.bootstrap-5') }}
 </div>
 @endsection

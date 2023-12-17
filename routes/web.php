@@ -27,7 +27,8 @@ Route::controller(frontendController::class)->group(function(){
     Route::get('/berita','berita')->name('berita.all');
     Route::get('/berita/{slug}','beritabaca')->name('berita.baca');
     Route::get('/keanggotaan','keanggotaan')->name('keanggotaan');
-    Route::get('/kegiatan','kegiatan')->name('kegiatan');
+    Route::get('/kegiatan','kegiatan')->name('kegiatan.all');
+    Route::get('/kegiatan/{slug}', 'kegiatanbaca')->name('kegiatan.baca');
     Route::get('/galeriphoto','galeriphoto')->name('galeri.photo');
     Route::get('/galerivideo','galerivideo')->name('galeri.video');
     Route::get('/hubungikami','hubungikami')->name('hubungikami');

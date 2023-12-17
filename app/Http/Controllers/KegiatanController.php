@@ -67,17 +67,33 @@ class KegiatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Kegiatan $kegiatan)
     {
-        //
+        $kategoriKegiatan = KategoriKegiatan::all();
+        return view('admin.kegiatan.edit')
+        ->with('kegiatan', $kegiatan)
+        ->with('kategoriKegiatan', $kategoriKegiatan);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Kegiatan $kegiatan)
     {
-        //
+        $kegiatan->judul_kegiatan = $request->judul_kegiatan;
+        $slug = Str::slug($request->judul_kegiatan);
+        $kegiatan->slug = $slug;
+        $kegiatan->kategori_kegiatan_id = $request->kategori_kegiatan_id;
+        $kegiatan->body = $request->body;
+        $short = Str::limit(strip_tags($request->body), 50, '...');
+        $kegiatan->short = $short;
+        if ($request->status_thumbnail == 'new') {
+            Storage::delete($kegiatan->thumbnail);
+            $thumbnail = $request->file('thumbnail')->storeAs('news-thumbnail', $kegiatan->judul_kegiatan . '.' . $request->file('thumbnail')->extension());
+            $kegiatan->thumbnail = $thumbnail;
+        }
+        $kegiatan->save();
+        return redirect()->route('kegiatan.kegiatan.index');
     }
 
     /**

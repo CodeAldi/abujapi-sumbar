@@ -16,7 +16,7 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $kegiatan = Kegiatan::paginate(3);
+        $kegiatan = Kegiatan::paginate(7);
         return view('admin.kegiatan.index')
         ->with('kegiatan',$kegiatan);
     }

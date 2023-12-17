@@ -8,7 +8,7 @@
         <div class="row d-flex justify-content-end">
             <a href="{{ route('kegiatan.kegiatan.create') }}" class="btn btn-success col-2">Tulis Kegiatan Baru</a>
         </div>
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive">
             <table class="table h-100">
                 <thead>
                     <tr>

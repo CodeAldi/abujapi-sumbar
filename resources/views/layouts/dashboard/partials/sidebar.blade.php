@@ -20,6 +20,14 @@
             </a>
         </li>
 
+        {{--! anggota --}}
+        <li class="menu-item @if(Request::RouteIs('kegiatan.*')) active @endif">
+            <a href="javascript:void(0);" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div>Anggota</div>
+            </a>
+        </li>
+
         {{--! berita --}}
         <li class="menu-item @if(Request::RouteIs('berita.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -48,7 +56,7 @@
         {{--! Kegiatan --}}
         <li class="menu-item @if(Request::RouteIs('kegiatan.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-receipt"></i>
+                <i class="menu-icon tf-icons bx bx-clipboard"></i>
                 <div>Kegiatan</div>
             </a>
 
@@ -70,6 +78,7 @@
                 </li>
             </ul>
         </li>
+        
         {{--! Galeri --}}
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">

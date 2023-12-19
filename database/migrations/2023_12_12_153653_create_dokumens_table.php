@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokumens', function (Blueprint $table) {
+        Schema::create('dokumen', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_dokumen_id')->constrained('kategori_dokumen')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('judul_dokumen');
+            $table->string('slug');
+            $table->string('path');
             $table->timestamps();
         });
     }

@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('galeris', function (Blueprint $table) {
+        Schema::create('galeri', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kategori_galeri_id')->constrained('kategori_galeri')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('judul_galeri');
+            $table->string('slug');
+            $table->string('path');
             $table->timestamps();
         });
     }

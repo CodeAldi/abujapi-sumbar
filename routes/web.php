@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
@@ -69,4 +70,7 @@ Route::controller(KegiatanController::class)->middleware('auth')->group(function
     Route::put('/dashboard/kegiatan/{kegiatan}/update', 'update')->name('kegiatan.kegiatan.update');
     Route::post('/dashboard/kegiatan/store', 'store')->name('kegiatan.kegiatan.store');
     Route::delete('/dashboard/kegiatan/{kegiatan}/destroy', 'destroy')->name('kegiatan.kegiatan.destroy');
+});
+Route::controller(AnggotaController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/anggota/index','index')->name('anggota.index');
 });

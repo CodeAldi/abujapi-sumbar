@@ -21,8 +21,8 @@
         </li>
 
         {{--! anggota --}}
-        <li class="menu-item @if(Request::RouteIs('kegiatan.*')) active @endif">
-            <a href="javascript:void(0);" class="menu-link">
+        <li class="menu-item @if(Request::RouteIs('anggota.*')) active @endif">
+            <a href="{{ route('anggota.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-group"></i>
                 <div>Anggota</div>
             </a>

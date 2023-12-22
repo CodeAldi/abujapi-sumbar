@@ -33,16 +33,36 @@
                         <td>{{ $item->badan_usaha }}</td>
                         <td>{{ $item->nomor_sertifikat }}</td>
                         <td>{{ $item->alamat }}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#"><i
+                                            class="bx bx-edit-alt me-1"></i>
+                                        Edit</a>
+                                    <form action="{{ route('anggota.destroy',['anggota'=>$item]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                            Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="4" class="text-white text-center bg-warning">No Data</td>
+                        <td colspan="5" class="text-white text-center bg-warning">No Data</td>
                     </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
-
+        <div class="d-flex justify-content-center mt-3">
+            {{ $anggota->links('pagination.my-pagination') }}
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="tambahmultiple" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

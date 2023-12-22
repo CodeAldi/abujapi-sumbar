@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anggota;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -11,7 +12,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        return view('admin.anggota.index');
+        $anggota = Anggota::paginate(10);
+        return view('admin.anggota.index')->with('anggota',$anggota);
     }
 
     /**
@@ -27,7 +29,12 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anggota = new Anggota();
+        $anggota->nomor_sertifikat = $request->nomor_sertifikat;
+        $anggota->badan_usaha = $request->badan_usaha;
+        $anggota->alamat = $request->alamat;
+        $anggota->save();
+        return redirect()->route('anggota.index');
     }
 
     /**

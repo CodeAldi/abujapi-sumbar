@@ -74,6 +74,7 @@ Route::controller(KegiatanController::class)->middleware('auth')->group(function
 Route::controller(AnggotaController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/anggota/index','index')->name('anggota.index');
     Route::post('/dashboard/anggota/store','store')->name('anggota.store');
+    Route::put('/dashboard/anggota/{anggota}/update', 'update')->name('anggota.update');
     Route::delete('/dashboard/anggota/{anggota}/destroy', 'destroy')->name('anggota.destroy');
 
 });

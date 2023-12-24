@@ -56,9 +56,13 @@ class AnggotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Anggota $anggota)
     {
-        //
+        $anggota->nomor_sertifikat = $request->nomor_sertifikat;
+        $anggota->badan_usaha = $request->badan_usaha;
+        $anggota->alamat = $request->alamat;
+        $anggota->save();
+        return redirect()->route('anggota.index');
     }
 
     /**

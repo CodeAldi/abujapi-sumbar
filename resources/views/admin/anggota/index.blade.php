@@ -35,17 +35,18 @@
                         <td>{{ $item->alamat }}</td>
                         <td>
                             <div class="dropdown">
-                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                    data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i
-                                            class="bx bx-edit-alt me-1"></i>
-                                        Edit</a>
+                                    <button class="dropdown-item" type="button" data-bs-toggle='modal'
+                                        data-bs-target='#updatemodal{{ $loop->iteration }}'><i class="bx bx-edit-alt me-1"></i>
+                                        Edit</button>
                                     <form action="{{ route('anggota.destroy',['anggota'=>$item]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                        <button class="dropdown-item"><i class="bx bx-trash me-1"></i>
                                             Delete</button>
                                     </form>
                                 </div>
@@ -102,7 +103,7 @@
 </div>
 @endsection
 
-<!-- Modal -->
+<!-- Modal tambah anggota-->
 <div class="modal fade" id="tambahsingle" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -143,3 +144,49 @@
         </div>
     </div>
 </div>
+@forelse ($anggota as $item)
+<!-- Modal for update -->
+<div class="modal fade" id="updatemodal{{ $loop->iteration }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatemodalTitle">Update Anggota</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('anggota.update',['anggota'=>$item]) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="badan_usaha" class="form-label">Nama Badan Usaha</label>
+                            <input type="text" id="badan_usaha" name="badan_usaha" class="form-control"
+                                value="{{ $item->badan_usaha }}" autofocus />
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col mb-0">
+                            <label for="nomor_sertifikat" class="form-label">Nomor Sertifikat</label>
+                            <input type="text" id="nomor_sertifikat" name="nomor_sertifikat" class="form-control"
+                                value="{{ $item->nomor_sertifikat }}" />
+                        </div>
+                        <div class="col mb-0">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <input type="text" id="alamat" name="alamat" class="form-control"
+                                value="{{ $item->alamat }}" />
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-primary">Update anggota</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+@empty
+    
+@endforelse

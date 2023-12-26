@@ -105,7 +105,7 @@
             </ul>
         </li>
         {{--! Dokumen --}}
-        <li class="menu-item">
+        {{-- <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div>Dokumen</div>
@@ -128,7 +128,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         {{-- ! logout --}}
         <li class="menu-item">
             <a href="{{ route('logout') }}" class="menu-link">

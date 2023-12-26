@@ -168,7 +168,7 @@
                 </div>
             </div>
             <div class="muat mt-3">
-                <a href="#" class="btn d-block mx-auto text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
+                <a href="{{ route('berita.all') }}" class="btn d-block mx-auto text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
                     Banyak</a>
             </div>
         </div>
@@ -239,7 +239,7 @@
                 </div>
             </div>
             <div class="muat mt-3 ">
-                <a href="#" class="btn d-block text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
+                <a href="{{ route('kegiatan.all') }}" class="btn d-block text-white rounded-pill" style="background-color: #eaa742;">Muat Lebih
                     Banyak</a>
             </div>
         </div>

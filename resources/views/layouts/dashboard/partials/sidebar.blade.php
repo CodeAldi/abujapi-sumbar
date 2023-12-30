@@ -80,14 +80,14 @@
         </li>
         
         {{--! Galeri --}}
-        <li class="menu-item">
+        <li class="menu-item @if(Request::RouteIs('gallery.*')) active open @endif">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-images"></i>
                 <div>Galeri</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item @if(Request::RouteIs('gallery.kategori-gallery.index')) active @endif">
                     <a href="{{ route('gallery.kategori-gallery.index') }}" class="menu-link">
                         <div>Kategori Galeri</div>
                     </a>

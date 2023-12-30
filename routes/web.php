@@ -81,4 +81,5 @@ Route::controller(AnggotaController::class)->middleware('auth')->group(function(
 });
 Route::controller(KategoriGaleriController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/kategori-gallery/index','index')->name('gallery.kategori-gallery.index');
+    Route::post('/dashboard/kategori-gallery/store','store')->name('gallery.kategori-gallery.store');
 });

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriGaleri;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class KategoriGaleriController extends Controller
@@ -11,7 +13,8 @@ class KategoriGaleriController extends Controller
      */
     public function index()
     {
-        return view('admin.kategori-galeri.index');
+        $kategoriGaleri = KategoriGaleri::all();
+        return view('admin.kategori-galeri.index')->with('kategoriGaleri',$kategoriGaleri);
     }
 
     /**
@@ -27,7 +30,15 @@ class KategoriGaleriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul_kategori' => 'required|unique:kategori_galeri|max:255',
+        ]);
+        $validatedData['slug'] = Str::slug($validatedData['judul_kategori']);
+        $kategoriGaleri = new KategoriGaleri();
+        $kategoriGaleri->judul_kategori = $validatedData['judul_kategori'];
+        $kategoriGaleri->slug = $validatedData['slug'];
+        $kategoriGaleri->save();
+        return redirect()->route('gallery.kategori-gallery.index');
     }
 
     /**

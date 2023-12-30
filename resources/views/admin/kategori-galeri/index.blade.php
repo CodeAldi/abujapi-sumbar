@@ -5,7 +5,7 @@
         <h5 class="card-title">kategori-galeri</h5>
     </div>
     <div class="card-body">
-        <form action="#" method="post">
+        <form action="{{ route('gallery.kategori-gallery.store') }}" method="post">
             @csrf
             <div class="row d-flex justify-content-end">
                 <div class="col-4"><input type="text" name="judul_kategori" class="form-control"></div>
@@ -23,9 +23,10 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
+                    @forelse ($kategoriGaleri as $item)
                     <tr>
-                        <td>1</td>
-                        <td>Albert Cook</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->judul_kategori }}</td>
                         <td>1</td>
                         <td>
                             <div class="dropdown">
@@ -43,9 +44,11 @@
                             </div>
                         </td>
                     </tr>
+                    @empty
                     <tr>
                         <td colspan="4" class="text-white text-center bg-warning">No Data</td>
                     </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

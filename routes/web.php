@@ -38,7 +38,7 @@ Route::controller(frontendController::class)->group(function(){
 });
 
 Route::controller(AuthController::class)->group(function(){
-    Route::get('/login','renderLoginPage')->name('login');
+    Route::get('/login','renderLoginPage')->middleware('guest')->name('login');
     Route::post('/login', 'authenticate')->middleware('guest')->name('authenticate');
     Route::get('/logout','logout')->middleware('auth')->name('logout');
 });

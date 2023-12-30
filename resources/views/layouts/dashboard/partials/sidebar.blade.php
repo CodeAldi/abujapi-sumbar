@@ -88,7 +88,7 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                    <a href="{{ route('gallery.kategori-gallery.index') }}" class="menu-link">
                         <div>Kategori Galeri</div>
                     </a>
                 </li>

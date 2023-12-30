@@ -6,6 +6,7 @@ use App\Models\Galeri;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriGaleri;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriController extends Controller
 {
@@ -75,8 +76,10 @@ class GaleriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Galeri $galeri)
     {
-        //
+        Storage::delete($galeri->path);
+        $galeri->delete();
+        return redirect()->route('gallery.index');
     }
 }

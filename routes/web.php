@@ -88,4 +88,5 @@ Route::controller(GaleriController::class)->middleware('auth')->group(function()
     Route::get('/dashboard/galeri/index','index')->name('gallery.index');
     Route::get('/dashboard/galeri/create','create')->name('gallery.create');
     Route::post('/dashboard/galeri/store','store')->name('gallery.store');
+    Route::delete('/dashboard/galeri/{galeri}/delete','destroy')->name('gallery.destroy');
 });

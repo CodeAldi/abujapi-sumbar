@@ -52,25 +52,34 @@ class GaleriController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Galeri $galeri)
     {
-        //
+        return view('admin.galeri.show')->with('galeri',$galeri);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Galeri $galeri)
     {
-        //
+        $kategoriGaleri = KategoriGaleri::all();
+        return view('admin.galeri.edit')->with('kategoriGaleri',$kategoriGaleri)->with('galeri',$galeri);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Galeri $galeri)
     {
-        //
+        $galeri->judul_galeri = $request->gallery_title;
+        $galeri->kategori_galeri_id = $request->gallery_kategori;
+        if ($request->status_thumbnail == 'new') {
+            Storage::delete($galeri->path);
+            $path = $request->file('upload_image')->storeAs('gallery', $request->gallery_title . '.' . $request->file('upload_image')->extension());
+            $galeri->path = $path;
+        }
+        $galeri->save();
+        return redirect()->route('gallery.index');
     }
 
     /**

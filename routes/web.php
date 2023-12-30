@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\frontendController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\KategoriGaleriController;
 use App\Http\Controllers\KategoriKegiatanController;
 
 /*
@@ -77,4 +78,7 @@ Route::controller(AnggotaController::class)->middleware('auth')->group(function(
     Route::put('/dashboard/anggota/{anggota}/update', 'update')->name('anggota.update');
     Route::delete('/dashboard/anggota/{anggota}/destroy', 'destroy')->name('anggota.destroy');
 
+});
+Route::controller(KategoriGaleriController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/kategori-gallery/index','index')->name('gallery.kategori-gallery.index');
 });

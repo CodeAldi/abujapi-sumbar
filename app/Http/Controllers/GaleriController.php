@@ -12,7 +12,7 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        // 
+        return view('admin.galeri.index');
     }
 
     /**

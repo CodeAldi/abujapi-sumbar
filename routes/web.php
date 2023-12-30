@@ -85,6 +85,7 @@ Route::controller(KategoriGaleriController::class)->middleware('auth')->group(fu
     Route::post('/dashboard/kategori-gallery/store','store')->name('gallery.kategori-gallery.store');
 });
 Route::controller(GaleriController::class)->middleware('auth')->group(function(){
+    Route::get('/dashboard/galeri/index','index')->name('gallery.index');
     Route::get('/dashboard/galeri/create','create')->name('gallery.create');
     Route::post('/dashboard/galeri/store','store')->name('gallery.store');
 });

@@ -99,7 +99,7 @@
                 </li>
                 <li class="menu-item">
                     <a href="layouts-container.html" class="menu-link">
-                        <div>Tulis Galeri</div>
+                        <div>Upload Galeri</div>
                     </a>
                 </li>
             </ul>

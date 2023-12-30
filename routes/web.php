@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\frontendController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KategoriGaleriController;
@@ -82,4 +83,7 @@ Route::controller(AnggotaController::class)->middleware('auth')->group(function(
 Route::controller(KategoriGaleriController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/kategori-gallery/index','index')->name('gallery.kategori-gallery.index');
     Route::post('/dashboard/kategori-gallery/store','store')->name('gallery.kategori-gallery.store');
+});
+Route::controller(GaleriController::class)->middleware('auth')->group(function(){
+    Route::get('dashboard/galeri/index','index')->name('gallery.index');
 });

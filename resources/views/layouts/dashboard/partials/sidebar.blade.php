@@ -97,8 +97,8 @@
                         <div>List Galeri</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="layouts-container.html" class="menu-link">
+                <li class="menu-item @if(Request::RouteIs('gallery.index')) active @endif">
+                    <a href="{{ route('gallery.index') }}" class="menu-link">
                         <div>Upload Galeri</div>
                     </a>
                 </li>

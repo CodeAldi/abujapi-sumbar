@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KategoriGaleri;
+use App\Models\Galeri;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\KategoriGaleri;
 
 class GaleriController extends Controller
 {
@@ -12,7 +14,8 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        return view('admin.galeri.index');
+        $galeri = Galeri::all();
+        return view('admin.galeri.index')->with('galeri',$galeri);
     }
 
     /**
@@ -34,7 +37,15 @@ class GaleriController extends Controller
             'gallery_kategori'=>'required',
             'upload_image'=> 'required',
         ]);
-        return redirect()->route('gallery.kategori-gallery.index');
+        $galeri = new Galeri();
+        // dd($request->file('upload_image'));
+        $path = $request->file('upload_image')->storeAs('gallery', $validatedData['gallery_title'] . '.' . $request->file('upload_image')->extension());
+        $galeri->kategori_galeri_id = $validatedData['gallery_kategori'];
+        $galeri->judul_galeri = $validatedData['gallery_title'];
+        $galeri->slug = Str::slug($validatedData['gallery_title']);
+        $galeri->path = $path;
+        $galeri->save();
+        return redirect()->route('gallery.index');
     }
 
     /**

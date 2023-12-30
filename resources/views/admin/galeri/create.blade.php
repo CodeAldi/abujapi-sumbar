@@ -5,7 +5,7 @@
         <h5 class="card-title">Upload Galeri</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('gallery.store') }}" method="post">
+        <form action="{{ route('gallery.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Judul item</label>

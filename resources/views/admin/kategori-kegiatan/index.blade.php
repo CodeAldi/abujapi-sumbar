@@ -27,7 +27,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->judul_kategori }}</td>
-                            <td>1</td>
+                            <td>{{ $countKategoriKegiatan[$item->id] }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

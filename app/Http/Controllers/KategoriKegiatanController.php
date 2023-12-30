@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriKegiatan;
+use App\Models\Kegiatan;
 
 class KategoriKegiatanController extends Controller
 {
@@ -14,8 +15,18 @@ class KategoriKegiatanController extends Controller
     public function index()
     {
         $kategoriKegiatan = KategoriKegiatan::all();
+        $kegiatan = Kegiatan::all();
+        foreach ($kategoriKegiatan as $key => $value) {
+            $count_kategori_kegiatan[$value->id] = 0;
+            foreach ($kegiatan as $keykegiatan => $valuekegiatan) {
+                if ($value->id == $valuekegiatan->kategori_kegiatan_id) {
+                    $count_kategori_kegiatan[$value->id] = $count_kategori_kegiatan[$value->id] + 1;
+                }
+            }
+        }
         return view('admin.kategori-kegiatan.index')
-        ->with('kategoriKegiatan', $kategoriKegiatan);
+        ->with('kategoriKegiatan', $kategoriKegiatan)
+        ->with('countKategoriKegiatan',$count_kategori_kegiatan);
     }
 
     /**

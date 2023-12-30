@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,19 @@ class KategoriBeritaController extends Controller
     public function index()
     {
         $kategoriBerita = KategoriBerita::all();
+        $berita = Berita::all();
+        foreach ($kategoriBerita as $key => $value) {
+            $count_kategori_berita[$value->id] = 0;
+            foreach ($berita as $keyberita => $valueberita) {
+                if ($value->id == $valueberita->kategori_berita_id) {
+                    $count_kategori_berita[$value->id] = $count_kategori_berita[$value->id] + 1;
+                }
+            }
+        }
+        // dd($count_kategori_berita[2]);
         return view('admin.kategori-berita.index')
-        ->with('kategoriBerita',$kategoriBerita);
+        ->with('kategoriBerita',$kategoriBerita)
+        ->with('countKategoriBerita',$count_kategori_berita);
     }
 
     /**

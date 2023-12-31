@@ -98,7 +98,7 @@
                     </a>
                 </li>
                 <li class="menu-item @if(Request::RouteIs('gallery.video.index')) active @endif">
-                    <a href="{{ route('gallery.index') }}" class="menu-link">
+                    <a href="{{ route('gallery.video.index') }}" class="menu-link">
                         <div>List Video</div>
                     </a>
                 </li>
@@ -108,7 +108,7 @@
                     </a>
                 </li>
                 <li class="menu-item @if(Request::RouteIs('gallery.video.create')) active @endif">
-                    <a href="{{ route('gallery.create') }}" class="menu-link">
+                    <a href="{{ route('gallery.video.create') }}" class="menu-link">
                         <div>Upload Video</div>
                     </a>
                 </li>

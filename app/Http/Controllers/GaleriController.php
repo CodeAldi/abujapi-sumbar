@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galeri;
+use App\Models\galeriVideo;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KategoriGaleri;
@@ -18,6 +19,11 @@ class GaleriController extends Controller
         $galeri = Galeri::all();
         return view('admin.galeri.index')->with('galeri',$galeri);
     }
+    public function indexvideo()
+    {
+        $galeri = galeriVideo::all();
+        return view('admin.galeri.indexvideo')->with('galeri', $galeri);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,6 +32,20 @@ class GaleriController extends Controller
     {
         $kategoriGaleri = KategoriGaleri::all();
         return view('admin.galeri.create')->with('kategoriGaleri', $kategoriGaleri);
+    }
+    public function createvideo()
+    {
+        $kategoriGaleri = KategoriGaleri::all();
+        return view('admin.galeri.createvideo')->with('kategoriGaleri', $kategoriGaleri);
+    }
+
+    function videostore(Request $request) {
+        $video = new galeriVideo();
+        $video->kategori_galeri_id = $request->gallery_kategori;
+        $video->judul_galeri_video = $request->judul_galeri_video;
+        $video->link = $request->link;
+        $video->save();
+        return redirect()->route('gallery.video.index');
     }
 
     /**

@@ -88,8 +88,11 @@ Route::controller(KategoriGaleriController::class)->middleware('auth')->group(fu
 });
 Route::controller(GaleriController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/galeri/index','index')->name('gallery.index');
+    Route::get('/dashboard/galeri/videos/index','indexvideo')->name('gallery.video.index');
+    Route::get('/dashboard/galeri/videos/create','createvideo')->name('gallery.video.create');
     Route::get('/dashboard/galeri/create','create')->name('gallery.create');
     Route::post('/dashboard/galeri/store','store')->name('gallery.store');
+    Route::post('/dashboard/galeri/videos/store','videostore')->name('gallery.video.store');
     Route::get('/dashboard/galeri/{galeri}','show')->name('gallery.show');
     Route::get('/dashboard/galeri/{galeri}/edit','edit')->name('gallery.edit');
     Route::put('/dashboard/galeri/{galeri}/update','update')->name('gallery.update');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galeri;
 use App\Models\KategoriGaleri;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -14,7 +15,16 @@ class KategoriGaleriController extends Controller
     public function index()
     {
         $kategoriGaleri = KategoriGaleri::all();
-        return view('admin.kategori-galeri.index')->with('kategoriGaleri',$kategoriGaleri);
+        $galeri = Galeri::all();
+        foreach ($kategoriGaleri as $key => $value) {
+            $count_kategori_galeri[$value->id] = 0;
+            foreach ($galeri as $keygaleri => $valuegaleri) {
+                if ($value->id == $valuegaleri->kategori_galeri_id) {
+                    $count_kategori_galeri[$value->id] = $count_kategori_galeri[$value->id] + 1;
+                }
+            }
+        }
+        return view('admin.kategori-galeri.index')->with('kategoriGaleri',$kategoriGaleri)->with('countKategoriGaleri',$count_kategori_galeri);
     }
 
     /**

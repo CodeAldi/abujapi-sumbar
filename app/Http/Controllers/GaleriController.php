@@ -111,4 +111,9 @@ class GaleriController extends Controller
         $galeri->delete();
         return redirect()->route('gallery.index');
     }
+    public function destroyvideo(galeriVideo $galerivideo)
+    {
+        $galerivideo->delete();
+        return redirect()->route('gallery.video.index');
+    }
 }

@@ -9,10 +9,10 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $item->judul_galeri_video }}</h4>
-                <iframe src="{{ $item->link }}"  frameborder="0"></iframe>
+                <iframe src="{{ 'https://www.youtube.com/embed/'.$item->link }}"  frameborder="0"></iframe>
                 <p class="mt-2">Action : </p>
                 
-                <form action="{{ route('gallery.destroy',['galeri'=>$item]) }}" method="post" class="d-inline">
+                <form action="{{ route('gallery.video.destroy',['galerivideo'=>$item]) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
 

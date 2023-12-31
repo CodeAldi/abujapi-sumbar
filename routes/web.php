@@ -97,4 +97,5 @@ Route::controller(GaleriController::class)->middleware('auth')->group(function()
     Route::get('/dashboard/galeri/{galeri}/edit','edit')->name('gallery.edit');
     Route::put('/dashboard/galeri/{galeri}/update','update')->name('gallery.update');
     Route::delete('/dashboard/galeri/{galeri}/delete','destroy')->name('gallery.destroy');
+    Route::delete('/dashboard/galeri/video/{galerivideo}/delete','destroyvideo')->name('gallery.video.destroy');
 });

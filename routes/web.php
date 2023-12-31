@@ -10,6 +10,11 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\KategoriGaleriController;
 use App\Http\Controllers\KategoriKegiatanController;
+use App\Models\Anggota;
+use App\Models\Berita;
+use App\Models\Galeri;
+use App\Models\galeriVideo;
+use App\Models\Kegiatan;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +49,19 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::get('/dashboard',function(){
-    return view('admin.dashboard');
+    $berita = count(Berita::all());
+    $kegiatan = count(Kegiatan::all());
+    $anggota = count(Anggota::all());
+    $photo = count(Galeri::all());
+    $video = count(galeriVideo::all());
+    $pesan = 0;
+    return view('admin.dashboard')
+    ->with('berita',$berita)
+    ->with('kegiatan',$kegiatan)
+    ->with('anggota',$anggota)
+    ->with('photo',$photo)
+    ->with('video',$video)
+    ->with('pesan',$pesan);
 })->middleware('auth')->name('dashboard');
 
 Route::controller(KategoriBeritaController::class)->middleware('auth')->group(function(){

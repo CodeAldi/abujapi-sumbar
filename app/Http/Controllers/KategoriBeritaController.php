@@ -80,6 +80,11 @@ class KategoriBeritaController extends Controller
      */
     public function destroy(KategoriBerita $kategoriBerita)
     {
+        $berita = Berita::where('kategori_berita_id','LIKE',$kategoriBerita->id)->get();
+        foreach ($berita as $key => $value) {
+            $value->kategori_berita_id = 1;
+            $value->save();
+        }
         $kategoriBerita->delete();
         return redirect()->route('berita.kategori-berita.index');
     }

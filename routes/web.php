@@ -83,6 +83,8 @@ Route::controller(AnggotaController::class)->middleware('auth')->group(function(
 Route::controller(KategoriGaleriController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/kategori-gallery/index','index')->name('gallery.kategori-gallery.index');
     Route::post('/dashboard/kategori-gallery/store','store')->name('gallery.kategori-gallery.store');
+    Route::put('/dashboard/kategori-gallery/{kategoriGaleri}/update','update')->name('gallery.kategori-gallery.update');
+    Route::delete('/dashboard/kategori-gallery/{kategoriGaleri}/destroy','destroy')->name('gallery.kategori-gallery.destroy');
 });
 Route::controller(GaleriController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/galeri/index','index')->name('gallery.index');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use App\Models\Berita;
 use App\Models\Galeri;
+use App\Models\galeriVideo;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -30,7 +31,7 @@ class frontendController extends Controller
     }
 
     public function berita() : View {
-        $berita = Berita::latest()->paginate(3);
+        $berita = Berita::latest()->paginate(6);
         return view('frontend.berita')
         ->with('berita',$berita);
     }
@@ -45,7 +46,7 @@ class frontendController extends Controller
     }
 
     public function kegiatan() : View {
-        $kegiatan = Kegiatan::latest()->paginate(3);
+        $kegiatan = Kegiatan::latest()->paginate(6);
         return view('frontend.kegiatan')->with('kegiatan',$kegiatan);
     }
 
@@ -55,7 +56,8 @@ class frontendController extends Controller
     }
 
     public function galerivideo() : View {
-        return view('frontend.galerivideo');
+        $galeri_video = galeriVideo::paginate(6);
+        return view('frontend.galerivideo')->with('galeri_video',$galeri_video);
     }
     
     public function hubungikami() : View {

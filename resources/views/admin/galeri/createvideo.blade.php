@@ -26,9 +26,11 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Link Video</label>
+                    <label for="exampleFormControlInput1" class="form-label">ID Youtube Video</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" name="link"
-                        placeholder="Judul" />
+                        placeholder="masukan id youtube video" />
+                    <div class="form-text">contoh https://www.youtube.com/watch?v=qRODifJWIwE</div>
+                    <div class="form-text">id video nya adalah qRODifJWIwE</div>
                 </div>
                 <div>
                     <button type="reset" class="btn btn-secondary">Cancel</button>

@@ -35,6 +35,12 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'judul_berita' => 'required|max:255',
+            'kategori_berita_id' => 'required',
+            'body' => 'required',
+            'thumbnail' => 'required',
+        ]);
         $judul_berita = $request->judul_berita;
         $slug = Str::slug($judul_berita);
         $kategori_berita_id = $request->kategori_berita_id;

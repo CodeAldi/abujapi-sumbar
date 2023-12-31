@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nomor_sertifikat')->unique();
             $table->string('badan_usaha');
+            $table->string('nama_pemimpin');
+            $table->string('status');
             $table->string('alamat');
-            
+            $table->string('KTA');
             $table->timestamps();
         });
     }

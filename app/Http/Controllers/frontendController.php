@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anggota;
 use App\Models\Berita;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
@@ -38,7 +39,8 @@ class frontendController extends Controller
     }
 
     public function keanggotaan() : View {
-        return view('frontend.keanggotaan');
+        $anggota = Anggota::all();
+        return view('frontend.keanggotaan')->with('anggota',$anggota);
     }
 
     public function kegiatan() : View {

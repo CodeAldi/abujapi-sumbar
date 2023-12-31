@@ -20,9 +20,12 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Badan Usahha</th>
+                        <th>Nama BUJP</th>
                         <th>Nomor Sertifikat</th>
+                        <th>Nama Pemimpin</th>
+                        <th>Status</th>
                         <th>Alamat</th>
+                        <th>KTA ABUJAPI</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -32,7 +35,10 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->badan_usaha }}</td>
                         <td>{{ $item->nomor_sertifikat }}</td>
+                        <td>{{ $item->nama_pemimpin }}</td>
+                        <td>{{ $item->status }}</td>
                         <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->KTA }}</td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -55,7 +61,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="5" class="text-white text-center bg-warning">No Data</td>
+                        <td colspan="8" class="text-white text-center bg-warning">No Data</td>
                     </tr>
                     @endforelse
                 </tbody>
@@ -121,16 +127,34 @@
                                 placeholder="Enter Name" />
                         </div>
                     </div>
-                    <div class="row g-2">
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="badan_usaha" class="form-label">Alamat</label>
+                            <input type="text" id="badan_usaha" name="alamat" class="form-control"
+                                placeholder="Enter Name" />
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                            <label for="alamat" class="form-label">Nama pemimpin</label>
+                            <input type="text" id="alamat" name="nama_pemimpin" class="form-control"
+                                placeholder="isi nama pemimpin" />
+                        </div>
                         <div class="col mb-0">
                             <label for="nomor_sertifikat" class="form-label">Nomor Sertifikat</label>
                             <input type="text" id="nomor_sertifikat" name="nomor_sertifikat" class="form-control"
                                 placeholder="xxxxx/xx-xx-xxxx" />
                         </div>
+                    </div>
+                    <div class="row g-2">
                         <div class="col mb-0">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" name="alamat" class="form-control"
-                                placeholder="jl. xxx no xx rt xx rw xx" />
+                            <label for="nomor_sertifikat" class="form-label">Status</label>
+                            <input type="text" id="nomor_sertifikat" name="status" class="form-control"
+                                placeholder="xxxxx/xx-xx-xxxx" />
+                        </div>
+                        <div class="col mb-0">
+                            <label for="alamat" class="form-label">KTA</label>
+                            <input type="text" id="alamat" name="kta" class="form-control" placeholder="isi nama pemimpin" />
                         </div>
                     </div>
             </div>

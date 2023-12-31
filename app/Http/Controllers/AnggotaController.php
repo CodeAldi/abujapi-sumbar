@@ -33,11 +33,18 @@ class AnggotaController extends Controller
             'nomor_sertifikat'=> 'required|unique:anggota,nomor_sertifikat',
             'badan_usaha' => 'required|max:255',
             'alamat' => 'required|max:255',
+            'nama_pemimpin' => 'required',
+            'nomor_sertifikat' => 'required',
+            'status' => 'required',
+            'kta' => 'required'
         ]);
         $anggota = new Anggota();
         $anggota->nomor_sertifikat = $request->nomor_sertifikat;
         $anggota->badan_usaha = $request->badan_usaha;
         $anggota->alamat = $request->alamat;
+        $anggota->nama_pemimpin = $request->nama_pemimpin;
+        $anggota->status = $request->status;
+        $anggota->kta = $request->kta;
         $anggota->save();
         return redirect()->route('anggota.index');
     }

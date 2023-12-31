@@ -38,8 +38,15 @@
                                     <a class="dropdown-item" href="javascript:void(0);"><i
                                             class="bx bx-edit-alt me-1"></i>
                                         Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                        Delete</a>
+                                    <form
+                                        action="{{ route('gallery.kategori-gallery.destroy',['kategoriGaleri'=>$item]) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="dropdown-item" href="javascript:void(0);"><i
+                                                class="bx bx-trash me-1"></i>
+                                            Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </td>

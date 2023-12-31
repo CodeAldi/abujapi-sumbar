@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_berita');
+            $table->string('judul_berita')->unique();
             $table->string('slug');
-            $table->foreignId('kategori_berita_id');
+            $table->foreignId('kategori_berita_id')->constrained('kategori_berita')->onUpdate('cascade')->onDelete('cascade');
             $table->string('thumbnail');
             $table->string('short');
             $table->text('body');

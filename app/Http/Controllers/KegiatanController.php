@@ -36,6 +36,12 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'judul_kegiatan' => 'required',
+            'kategori_kegiatan_id' => 'required',
+            'body' => 'required',
+            'thumbnail' => 'required',
+        ]);
         $judul_kegiatan = $request->judul_kegiatan;
         $slug = Str::slug($judul_kegiatan);
         $kategori_kegiatan_id = $request->kategori_kegiatan_id;

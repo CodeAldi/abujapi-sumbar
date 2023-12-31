@@ -72,7 +72,10 @@ class KategoriGaleriController extends Controller
      */
     public function update(Request $request, KategoriGaleri $kategoriGaleri)
     {
-        //
+        $kategoriGaleri->judul_kategori = $request->judul_kategori;
+        $kategoriGaleri->slug = Str::slug($kategoriGaleri->judul_galeri);
+        $kategoriGaleri->save();
+        return redirect()->route('gallery.kategori-gallery.index');
     }
 
     /**

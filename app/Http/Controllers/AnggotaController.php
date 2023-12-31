@@ -29,6 +29,11 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nomor_sertifikat'=> 'required|unique:anggota,nomor_sertifikat',
+            'badan_usaha' => 'required|max:255',
+            'alamat' => 'required|max:255',
+        ]);
         $anggota = new Anggota();
         $anggota->nomor_sertifikat = $request->nomor_sertifikat;
         $anggota->badan_usaha = $request->badan_usaha;

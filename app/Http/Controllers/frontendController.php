@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use App\Models\Berita;
+use App\Models\Galeri;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -49,7 +50,8 @@ class frontendController extends Controller
     }
 
     public function galeriphoto() : View {
-        return view('frontend.galeriphoto');
+        $galeri_photo = Galeri::paginate(6);
+        return view('frontend.galeriphoto')->with('galeri_photo',$galeri_photo);
     }
 
     public function galerivideo() : View {

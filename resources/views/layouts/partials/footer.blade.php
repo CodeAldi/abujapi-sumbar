@@ -6,7 +6,7 @@
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">ALAMAT : Jl. S. Parman No.
                             118B KOTA PADANG SUMATERA BARAT</span></li>
-                    <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">Telp : Maintenance</span></li>
+                    <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">Telp : 081276075233 (sekretariat BPD ABUJAPI SUMBAR - KEKE)</span></li>
                     <li class="nav-item mb-2"><span  class="nav-link text-white p-0 ">Email :
                             sumbar@abujapi.or.id</span></li>
                 </ul>
@@ -16,7 +16,7 @@
                 <h5>Media Sosial</h5>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Facebook</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Instagram</a></li>
+                    <li class="nav-item mb-2"><a href="https://www.instagram.com/abujapisumbar/" class="nav-link text-white p-0 ">Instagram</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Youtube</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Tiktok</a></li>
                     <li class="nav-item mb-2"><a href="#" class="nav-link text-white p-0 ">Twitter</a></li>

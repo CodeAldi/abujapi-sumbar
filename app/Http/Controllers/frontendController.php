@@ -39,6 +39,11 @@ class frontendController extends Controller
         $berita = Berita::where('slug','like',$slug)->get();
         return view('frontend.berita.baca')->with('berita', $berita);
     }
+    public function kegiatanbaca($slug): View
+    {
+        $kegiatan = Kegiatan::where('slug', 'like', $slug)->get();
+        return view('frontend.kegiatan.baca')->with('kegiatan', $kegiatan);
+    }
 
     public function keanggotaan() : View {
         $anggota = Anggota::all();

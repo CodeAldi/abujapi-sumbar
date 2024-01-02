@@ -32,14 +32,6 @@
                 
             @endforelse
         </tbody>
-        <tfoot>
-            <th>No</th>
-            <th>Nama BUJP</th>
-            <th>Nama Pemimpin</th>
-            <th>Status</th>
-            <th>Alamat</th>
-            <th>KTA ABUJAPI</th>
-        </tfoot>
     </table>
 </div>
 @push('page-js')

@@ -25,8 +25,8 @@ class KategoriBeritaController extends Controller
         }
         // dd($count_kategori_berita[2]);
         return view('admin.kategori-berita.index')
-        ->with('kategoriBerita',$kategoriBerita)
-        ->with('countKategoriBerita',$count_kategori_berita);
+            ->with('kategoriBerita', $kategoriBerita)
+            ->with('countKategoriBerita', $count_kategori_berita);
     }
 
     /**
@@ -72,7 +72,9 @@ class KategoriBeritaController extends Controller
      */
     public function update(Request $request, KategoriBerita $kategoriBerita)
     {
-        //
+        $kategoriBerita->judul_kategori = $request->judul_kategori;
+        $kategoriBerita->save();
+        return redirect()->route('berita.kategori-berita.index');
     }
 
     /**
@@ -80,7 +82,7 @@ class KategoriBeritaController extends Controller
      */
     public function destroy(KategoriBerita $kategoriBerita)
     {
-        $berita = Berita::where('kategori_berita_id','LIKE',$kategoriBerita->id)->get();
+        $berita = Berita::where('kategori_berita_id', 'LIKE', $kategoriBerita->id)->get();
         foreach ($berita as $key => $value) {
             $value->kategori_berita_id = 1;
             $value->save();

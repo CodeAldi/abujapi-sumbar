@@ -81,6 +81,7 @@ Route::controller(BeritaController::class)->middleware('auth')->group(function()
 Route::controller(KategoriKegiatanController::class)->middleware('auth')->group(function () {
     Route::get('/dashboard/kategori-kegiatan/index', 'index')->name('kegiatan.kategori-kegiatan.index');
     Route::post('/dashboard/kategori-kegiatan/index', 'store')->name('kegiatan.kategori-kegiatan.store');
+    Route::put('/dashboard/kategori-kegiatan/{kategoriKegiatan}/update', 'update')->name('kegiatan.kategori-kegiatan.update');
     Route::delete('/dashboard/kategori-kegiatan/{kategoriKegiatan}/delete', 'destroy')->name('kegiatan.kategori-kegiatan.delete');
 });
 Route::controller(KegiatanController::class)->middleware('auth')->group(function () {

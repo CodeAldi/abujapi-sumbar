@@ -71,9 +71,11 @@ class KategoriKegiatanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, KategoriKegiatan $kategoriKegiatan)
     {
-        //
+        $kategoriKegiatan->judul_kategori = $request->judul_kategori;
+        $kategoriKegiatan->save();
+        return redirect()->route('kegiatan.kategori-kegiatan.index');
     }
 
     /**

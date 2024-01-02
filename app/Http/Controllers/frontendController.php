@@ -62,6 +62,7 @@ class frontendController extends Controller
 
     public function galerivideo() : View {
         $galeri_video = galeriVideo::paginate(6);
+        // dd($galeri_video)
         return view('frontend.galerivideo')->with('galeri_video',$galeri_video);
     }
     

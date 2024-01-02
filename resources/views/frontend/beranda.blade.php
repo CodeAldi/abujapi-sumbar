@@ -108,8 +108,8 @@
                         Berita Terbaru
                     </h1>
                 </div>
+                @forelse ($berita as $item)
                 <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-                    @forelse ($berita as $item)
                     <div class="col">
                         <div class="card">
                             <img src="{{ asset('storage/'.$item->thumbnail) }}"
@@ -125,45 +125,15 @@
                     </div>
                     @empty
                     <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/pengukuhan bpd abujapi sumbar.jpg') }}"
-                                class="card-img-top" alt="...">
+                        <div class="card mt-3 ">
                             <div class="card-body">
-                                <h5 class="card-title">Musda 1 BPD Abujapi Sumbar</h5>
-                                <p class="card-text">BPD ABUJAPI SUMATERA BARAT DIKUKUHKAN PADA 6 APRIL 2021 DI HOTEL KYRIAD BUMI MINANG PADANG.</p>
+                                <h5 class="card-title text-center">Data Berita Masih Kosong</h5>
+                                <p class="card-text"></p>
                             </div>
                             <div class="card-footer">
                                 <small class="text-body-secondary">by admin</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/fgd biro pengadaan barang dan jasa sumbar bersama bpd abujapi sumbar.jpg') }}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">FGD BPD Abujapi Sumbar Bersama Biro pengadaan Barang dan Jasa Sumatera Barat</h5>
-                                <p class="card-text">FGD BPD Abujapi Sumbar Bersama dan Difasilitasi oleh Biro pengadaan Barang dan Jasa Sumatera Barat</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">by admin</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/Disnakertrans Sumbar.jpg') }}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Pembahasan PP 35 beserta Regulasi Terkait bersama Dinas Tenaga Kerja Transmigrasi Sumatera Barat</h5>
-                                <p class="card-text">Surat Edaran oleh Pemda (Disnakertrans Sumbar) terkait Himbauan dana kompensasi kepada Perusahaan pengguna jasa Satpam
-                                se-Sumatera Barat</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">by admin</small>
-                            </div>
-                        </div>
-                    </div>
                     @endforelse
                 </div>
             </div>
@@ -179,8 +149,8 @@
                         Kegiatan
                     </h1>
                 </div>
+                @forelse ($kegiatan as $item)
                 <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-                    @forelse ($kegiatan as $item)
                         <div class="col">
                             <div class="card">
                                 <img src="{{ asset('storage/'.$item->thumbnail) }}" class="card-img-top" alt="...">
@@ -196,45 +166,15 @@
                         </div>
                     @empty
                     <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/musda bpd abujapi sumbar.jpg') }}"
-                                class="card-img-top" alt="...">
+                        <div class="card mt-3 ">
                             <div class="card-body">
-                                <h5 class="card-title">Musda dan Pelantikan Pengurus BPD Abujapi sumbar periode 2021-2026</h5>
-                                <p class="card-text">kegiatan musda 1 BPD sumbar pada tanggal 06 april 2021 dan pelantikan pengurus bpd abujapi sumbar periode 2021-2026</p>
+                                <h5 class="card-title text-center">Data Kegiatan Masih Kosong</h5>
+                                <p class="card-text"></p>
                             </div>
                             <div class="card-footer">
                                 <small class="text-body-secondary">by admin</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/hut satpam.jpg') }}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Hut Satpam ke-42</h5>
-                                <p class="card-text">Hut Satpam ke-42 </p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">by admin</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ asset('assets/img/news-thumbnail/rakernas.jpg') }}"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Rapat Kerja Nasional ABUJAPI 2022 di Sumatera Barat</h5>
-                                <p class="card-text">Rakernas ABUJAPI di Sumatera Barat</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">by admin</small>
-                            </div>
-                        </div>
-                    </div>
-                        
                     @endforelse
                 </div>
             </div>

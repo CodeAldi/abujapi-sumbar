@@ -8,21 +8,9 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">{{ $item->judul_galeri }}</h4>
-                    <img class="card-img-top img-fluid" src="{{ asset('storage/'.$item->path) }}" />
-                    {{-- <p class="mt-2">Action : </p>
-                    <a href="{{ route('gallery.show',['galeri'=>$item]) }}" class="btn btn-success rounded-pill btn-icon">
-                        <span class="tf-icons bx bx-show"></span>
-                    </a> --}}
-                    {{-- <a href="{{ route('gallery.edit',['galeri'=>$item]) }}" class="btn btn-dark rounded-pill btn-icon">
-                        <span class="tf-icons bx bx-pencil"></span>
+                    <a href="#myModal{{ $loop->iteration }}" data-bs-toggle="modal">
+                        <img class="card-img-top img-fluid" src="{{ asset('storage/'.$item->path) }}" />
                     </a>
-                    <form action="{{ route('gallery.destroy',['galeri'=>$item]) }}" method="post" class="d-inline">
-                        @csrf
-                        @method('delete')
-    
-                        <button type="submit" class="btn btn-danger rounded-pill btn-icon">
-                            <span class="tf-icons bx bx-x"></span>
-                        </button> --}}
                     </form>
                 </div>
             </div>
@@ -34,5 +22,22 @@
     <div class="d-flex justify-content-center mt-3">
         {{ $galeri_photo->links('pagination.my-pagination') }}
     </div>
+    <!-- Vertically centered modal -->
+    @forelse ($galeri_photo as $item)
+    <div class="modal" tabindex="-1" id="myModal{{ $loop->iteration }}">
+        <div class="modal-dialog modal-lg modal-dialog-centered" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $item->judul_galeri }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid mx-auto d-block" src="{{ asset('storage/'.$item->path) }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    @empty
+    @endforelse
 </div>
 @endsection

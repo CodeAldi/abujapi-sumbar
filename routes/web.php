@@ -68,6 +68,7 @@ Route::controller(KategoriBeritaController::class)->middleware('auth')->group(fu
     Route::get('/dashboard/kategori-berita/index','index')->name('berita.kategori-berita.index');
     Route::post('/dashboard/kategori-berita/index','store')->name('berita.kategori-berita.store');
     Route::delete('/dashboard/kategori-berita/{kategoriBerita}/delete','destroy')->name('berita.kategori-berita.delete');
+    Route::put('/dashboard/kategori-berita/{kategoriBerita}/update','update')->name('berita.kategori-berita.update');
 });
 Route::controller(BeritaController::class)->middleware('auth')->group(function(){
     Route::get('/dashboard/berita/index','index')->name('berita.berita.index');

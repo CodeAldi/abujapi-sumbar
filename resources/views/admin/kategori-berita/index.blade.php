@@ -74,7 +74,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('gallery.kategori-gallery.update',['kategoriGaleri'=>$item]) }}" method="post">
+                <form action="{{ route('berita.kategori-berita.update',['kategoriBerita'=>$item]) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">

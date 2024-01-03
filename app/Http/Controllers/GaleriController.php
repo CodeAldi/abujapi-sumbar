@@ -108,7 +108,7 @@ class GaleriController extends Controller
         $galeri->kategori_galeri_id = $request->gallery_kategori;
         $galeri->link = $request->link;
         $galeri->save();
-        return redirect()->route('<gallery class="video"></gallery>.index');
+        return redirect()->route('gallery.video.index');
     }
 
     /**

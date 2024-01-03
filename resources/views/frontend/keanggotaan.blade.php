@@ -13,6 +13,7 @@
                 <th>No</th>
                 <th>Nama BUJP</th>
                 <th>Nama Pemimpin</th>
+                <th>Nomor Sertifikat</th>
                 <th>Status</th>
                 <th>Alamat</th>
                 <th>KTA ABUJAPI</th>
@@ -24,6 +25,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->badan_usaha }}</td>
                     <td>{{ $item->nama_pemimpin }}</td>
+                    <td>{{ $item->nomor_sertifikat }}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->alamat }}</td>
                     <td>{{ $item->KTA }}</td>

@@ -14,6 +14,7 @@
                     <tr>
                         <th>No</th>
                         <th>Judul Kegiatan</th>
+                        <th>Kategori Kegiatan</th>
                         <th>isi Kegiatan</th>
                         <th>Actions</th>
                     </tr>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->judul_kegiatan }}</td>
+                        <td>{{ $item->kategori_kegiatan->judul_kategori }}</td>
                         <td>{{ $item->short }}</td>
                         <td>
                             <div class="dropdown">
@@ -49,7 +51,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="4" class="text-white text-center bg-warning">No Data</td>
+                        <td colspan="5" class="text-white text-center bg-warning">No Data</td>
                     </tr>
                     @endforelse
                 </tbody>

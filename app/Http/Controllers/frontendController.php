@@ -15,6 +15,7 @@ class frontendController extends Controller
     public function beranda() : View {
         $berita = Berita::latest()->take(3)->get();
         $kegiatan = Kegiatan::latest()->take(3)->get();
+        // dd(count($kegiatan));
         return view('frontend.beranda')->with('berita',$berita)->with('kegiatan',$kegiatan);
     }
 

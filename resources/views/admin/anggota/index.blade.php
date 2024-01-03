@@ -154,7 +154,7 @@
                         </div>
                         <div class="col mb-0">
                             <label for="alamat" class="form-label">KTA</label>
-                            <input type="text" id="alamat" name="kta" class="form-control" placeholder="isi nama pemimpin" />
+                            <input type="text" id="alamat" name="kta" class="form-control" placeholder="isi KTA" />
                         </div>
                     </div>
             </div>
@@ -184,20 +184,34 @@
                     <div class="row">
                         <div class="col mb-3">
                             <label for="badan_usaha" class="form-label">Nama Badan Usaha</label>
-                            <input type="text" id="badan_usaha" name="badan_usaha" class="form-control"
-                                value="{{ $item->badan_usaha }}" autofocus />
+                            <input type="text" id="badan_usaha" name="badan_usaha" class="form-control" value="{{ $item->badan_usaha }}" />
                         </div>
                     </div>
-                    <div class="row g-2">
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="badan_usaha" class="form-label">Alamat</label>
+                            <input type="text" id="badan_usaha" name="alamat" class="form-control" value="{{ $item->alamat }}" />
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col mb-0">
+                            <label for="alamat" class="form-label">Nama pemimpin</label>
+                            <input type="text" id="alamat" name="nama_pemimpin" class="form-control" value="{{ $item->nama_pemimpin }}" />
+                        </div>
                         <div class="col mb-0">
                             <label for="nomor_sertifikat" class="form-label">Nomor Sertifikat</label>
                             <input type="text" id="nomor_sertifikat" name="nomor_sertifikat" class="form-control"
                                 value="{{ $item->nomor_sertifikat }}" />
                         </div>
+                    </div>
+                    <div class="row g-2">
                         <div class="col mb-0">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" name="alamat" class="form-control"
-                                value="{{ $item->alamat }}" />
+                            <label for="nomor_sertifikat" class="form-label">Status</label>
+                            <input type="text" id="nomor_sertifikat" name="status" class="form-control" value="{{ $item->status }}" />
+                        </div>
+                        <div class="col mb-0">
+                            <label for="alamat" class="form-label">KTA</label>
+                            <input type="text" id="alamat" name="kta" class="form-control" value="{{ $item->KTA }}" />
                         </div>
                     </div>
             </div>

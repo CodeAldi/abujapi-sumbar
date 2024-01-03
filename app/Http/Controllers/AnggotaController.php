@@ -73,6 +73,9 @@ class AnggotaController extends Controller
         $anggota->nomor_sertifikat = $request->nomor_sertifikat;
         $anggota->badan_usaha = $request->badan_usaha;
         $anggota->alamat = $request->alamat;
+        $anggota->nama_pemimpin = $request->nama_pemimpin;
+        $anggota->status = $request->status;
+        $anggota->kta = $request->kta;
         $anggota->save();
         return redirect()->route('anggota.index');
     }

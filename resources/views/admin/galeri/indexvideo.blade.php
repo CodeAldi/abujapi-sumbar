@@ -9,9 +9,15 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{ $item->judul_galeri_video }}</h4>
+                <p>Kategori : {{ $item->kategori_galeri->judul_kategori }}</p>
                 <iframe src="{{ 'https://www.youtube.com/embed/'.$item->link }}"  frameborder="0"></iframe>
                 <p class="mt-2">Action : </p>
-                
+                <a href="{{ route('gallery.show',['galeri'=>$item]) }}" class="btn btn-success rounded-pill btn-icon">
+                    <span class="tf-icons bx bx-show"></span>
+                </a>
+                <a href="#updatemodal{{ $loop->iteration }}" data-bs-toggle='modal' class="btn btn-dark rounded-pill btn-icon">
+                    <span class="tf-icons bx bx-pencil"></span>
+                </a>
                 <form action="{{ route('gallery.video.destroy',['galerivideo'=>$item]) }}" method="post" class="d-inline">
                     @csrf
                     @method('delete')
@@ -28,3 +34,36 @@
     @endforelse
 </div>
 @endsection
+
+@foreach ($galeri as $item)
+<div class="modal fade" id="updatemodal{{ $loop->iteration }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tambahsingleTitle">Edit Galeri</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col">
+                            <label for="badan_usaha" class="form-label">Judul Galeri</label>
+                            <input type="text" id="badan_usaha" name="judul_galeri_video" class="form-control"
+                                value="{{ $item->judul_galeri_video }}" />
+                        </div>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-primary">Update Kategori</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach

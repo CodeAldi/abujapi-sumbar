@@ -83,6 +83,11 @@ class KategoriKegiatanController extends Controller
      */
     public function destroy(KategoriKegiatan $kategoriKegiatan)
     {
+        $kegiatan = Kegiatan::where('kategori_kegiatan_id', 'LIKE', $kategoriKegiatan->id)->get();
+        foreach ($kegiatan as $key => $value) {
+            $value->kategori_kegiatan_id = 1;
+            $value->save();
+        }
         $kategoriKegiatan->delete();
         return redirect()->route('kegiatan.kategori-kegiatan.index');
     }

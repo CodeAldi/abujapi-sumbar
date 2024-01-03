@@ -14,6 +14,7 @@
                     <tr>
                         <th>No</th>
                         <th>Judul Berita</th>
+                        <th>Kategori berita</th>
                         <th>isi berita</th>
                         <th>Actions</th>
                     </tr>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->judul_berita }}</td>
+                        <td>{{ $item->kategori_berita->judul_kategori }}</td>
                         <td>{{ $item->short }}</td>
                         <td>
                             <div class="dropdown">

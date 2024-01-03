@@ -44,7 +44,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+                <form action="{{ route('gallery.video.update',['galeri'=>$item]) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -54,13 +54,32 @@
                                 value="{{ $item->judul_galeri_video }}" />
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Kategori</label>
+                        <select class="form-select" id="exampleFormControlSelect1" name="gallery_kategori">
+                            <option selected disabled hidden>Please select....</option>
+                            @forelse ($kategoriGaleri as $itemgaleri)
+                            <option value="{{ $itemgaleri->id }}" @if ($itemgaleri->id == $item->kategori_galeri_id) selected @endif>
+                                {{ $itemgaleri->judul_kategori }}</option>
+                            @empty
+                            <option disabled>No Data</option>
+                            @endforelse
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">ID Youtube Video</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="link"
+                            value = "{{ $item->link }}" />
+                        <div class="form-text">contoh https://www.youtube.com/watch?v=qRODifJWIwE</div>
+                        <div class="form-text">id video nya adalah qRODifJWIwE</div>
+                    </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                     Close
                 </button>
-                <button type="submit" class="btn btn-primary">Update Kategori</button>
+                <button type="submit" class="btn btn-primary">Update Galeri Video</button>
             </div>
             </form>
         </div>

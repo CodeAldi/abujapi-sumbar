@@ -22,7 +22,8 @@ class GaleriController extends Controller
     public function indexvideo()
     {
         $galeri = galeriVideo::all();
-        return view('admin.galeri.indexvideo')->with('galeri', $galeri);
+        $kategoriGaleri = KategoriGaleri::all();
+        return view('admin.galeri.indexvideo')->with('galeri', $galeri)->with('kategoriGaleri',$kategoriGaleri);
     }
 
     /**
@@ -100,6 +101,14 @@ class GaleriController extends Controller
         }
         $galeri->save();
         return redirect()->route('gallery.index');
+    }
+    public function updatevideo(Request $request, galeriVideo $galeri)
+    {
+        $galeri->judul_galeri_video = $request->judul_galeri_video;
+        $galeri->kategori_galeri_id = $request->gallery_kategori;
+        $galeri->link = $request->link;
+        $galeri->save();
+        return redirect()->route('<gallery class="video"></gallery>.index');
     }
 
     /**
